@@ -1,18 +1,18 @@
 #! /usr/bin/env bash
 
 # Check which Python versions are available
-python --version                                                                                                                                                                                             python --version
+python --version
  
-# The first step for Python 3 is to install  Xcode program which is necessary for iOS development                                                                                                   $ xcode-select --install
+# The first step for Python 3 is to install  Xcode program which is necessary for iOS development
 xcode-select --install
  
-# Use XCode to install Homebrew, we need this for installing python                                                                                                                                                      			$ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+# Use XCode to install Homebrew, we need this for installing python 
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
-# Use Homebrew to Install Python 3.7+                                                                                                                                                                                                          $ brew install python3
+# Use Homebrew to Install Python 3.7+
 brew install python@3.8 
 
-# Check Python version installed                                                                                                                                                                                                                     $ python3 --version
+# Check Python version installed
 python --version
 
 # Check if poetry is already installed 
