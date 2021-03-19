@@ -1,22 +1,26 @@
-#!/bin/bash
-Windows=0;
+#! /usr/bin/env bash
 
-while [[ "$#" -gt 0 ]]; do case $1 in
-  --windows) 
-    Windows=1;;
-esac; shift; done
+# Check which Python versions are available
+python --version
+ 
+# The first step for Python 3 is to install  Xcode program which is necessary for iOS development
+xcode-select --install
+ 
+# Use XCode to install Homebrew, we need this for installing python 
+ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
-# Create and enable a virtual environment
-python -m venv --clear env
+# Use Homebrew to Install Python 3.7+
+brew install python@3.8 
 
-if [ $Windows == 1 ]
-    then source env/scripts/activate
-    else source env/bin/activate
-fi
+# Check Python version installed
+python --version
 
-# Upgrade pip and install required packages
-pip install --upgrade pip
-pip install -r requirements.txt
+# Check if poetry is already installed 
 
-# Create a .env file from the .env.template
-cp -n .env.template .env
+poetry --version
+
+#  Install Poetry
+curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python
+
+# Create a virtual environment + Install application dependencies
+poetry install
