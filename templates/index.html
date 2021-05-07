@@ -12,8 +12,7 @@
       <h2>Items</h2>
       <ul class="list-group mb-4">
           {% for todo in todos %}
-            {{todo.id}} - {{todo.title}}
-            <br>
+            <li>{{todo.id}} - {{todo.name}}</li>
           {% endfor %}
 
         <form action="/add-todo" method="post">
